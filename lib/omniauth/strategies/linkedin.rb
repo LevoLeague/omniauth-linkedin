@@ -29,7 +29,7 @@ module OmniAuth
           :last_name => raw_info['lastName'],
           :location => parse_location(raw_info['location']),
           :description => raw_info['summary'],
-          :image => raw_info['pictureUrls']['values']&.first || raw_info['pictureUrl'],
+          :image => (raw_info['pictureUrls'] && raw_info['pictureUrls']['values']&.first) || raw_info['pictureUrl'],
           :phone => nil,
           :headline => raw_info['headline'],
           :industry => raw_info['industry'],
